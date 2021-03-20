@@ -4,6 +4,7 @@ let panacek, panacekX, panacekY, panacekSirka, panacekVyska;
 let mince, mineX, minceY, minceSirka, minceVyska;
 let score, pocetMinci;
 let zvukMince, zvukFanfara;
+let hrajeHudba = false;
 
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
@@ -58,6 +59,13 @@ function novaMince() {
 // kde lze najít např. i vlastnost "key",
 // která obsahuje znak stisknuté klávesy
 function priStiskuKlavesy(udalost) {
+
+	//zapneme hudbu
+	if(!hrajeHudba) {
+		document.querySelector('#hudba').play();
+		console.log('Zapínám hudbu...');
+		hrajeHudba = true;
+	}
 
 	// šipka vlevo
 	if (udalost.key === 'ArrowLeft') {
