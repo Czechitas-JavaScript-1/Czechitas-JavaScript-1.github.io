@@ -124,4 +124,10 @@ function zvysScore() {
 
 	// vypíšeme skóre do textu na obrazovce
 	score.innerText = pocetMinci;
+
+	// otestujeme, zda už hráč nemá 5 bodů
+	if (pocetMinci === 5) {
+		// zobrazíme vítěznou hlášku
+		alert('Vyhrála jsi tuhle super hru!');
+	}
 }
