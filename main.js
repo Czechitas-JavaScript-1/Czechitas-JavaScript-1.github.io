@@ -87,11 +87,18 @@ function priStiskuKlavesy(udalost) {
 	umistiPanacka();
 
 	// otestujeme kolizi panáčka s mincí
-
+	otestujKolizi();
 
 }
 
 // fuknce pro otestování kolize panáčka s mincí
 function otestujKolizi() {
-	// musíme to napsat :)
+	// otestujeme, zda nedošlo ke kolizi s mincí
+	// toto je nejjednodušší a nejrychlejší test
+	// na průnik dvou obdélníků
+	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
+		// obdélníky se překrývají, mimozemšťan našel minci
+		// posuneme minci na novou náhodnou pozici
+		novaMince();
+	}
 }
