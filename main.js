@@ -2,15 +2,20 @@
 // ty jsou pak použitelné kdekoliv v programu
 let panacek, panacekX, panacekY, panacekSirka, panacekVyska;
 let mince, mineX, minceY, minceSirka, minceVyska;
+let score, pocetMinci;
 
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
 function priNacteniStranky() {
 
-	// do globálních proměnných si uložíme odkaz na objekty panáčka a mince,
+	// do globálních proměnných si uložíme odkaz na objekty panáčka, mince a score,
 	// abychom je nemuseli při každém použití znovu na stránce hledat pomocí document.querySelector
 	panacek = document.querySelector('#panacek');
 	mince = document.querySelector('#mince');
+	score = document.querySelector('#score');
+
+	// nastavíme výchozí hodnotu pro score
+	pocetMinci = 0;
 
 	// zjistíme šířku a výšku panáčka
 	panacekSirka = panacek.width;
@@ -102,7 +107,21 @@ function otestujKolizi() {
 	// na průnik dvou obdélníků
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
 		// obdélníky se překrývají, mimozemšťan našel minci
+
+		// zvýšíme skóre
+		zvysScore();
+
 		// posuneme minci na novou náhodnou pozici
 		novaMince();
 	}
+}
+
+// funkce pro zvýšení skóre
+function zvysScore() {
+
+	// zvýšíme skóre o 1
+	pocetMinci++;
+
+	// vypíšeme skóre do textu na obrazovce
+	score.innerText = pocetMinci;
 }
