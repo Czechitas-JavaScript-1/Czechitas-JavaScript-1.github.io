@@ -57,6 +57,7 @@ function priStiskuKlavesy(udalost) {
 		if (panacekX < 0) {
 			panacekX = 0;
 		}
+		panacek.src = 'obrazky/panacek-vlevo.png';
 	}
 
 	// šipka vpravo
@@ -65,6 +66,7 @@ function priStiskuKlavesy(udalost) {
 		if (panacekX + panacekSirka > window.innerWidth) {
 			panacekX = window.innerWidth - panacekSirka;
 		}
+		panacek.src = 'obrazky/panacek-vpravo.png';
 	}
 
 	// šipka nahoru
@@ -73,6 +75,7 @@ function priStiskuKlavesy(udalost) {
 		if (panacekY < 0) {
 			panacekY = 0;
 		}
+		panacek.src = 'obrazky/panacek-nahoru.png';
 	}
 
 	// šipka dolů
@@ -81,6 +84,7 @@ function priStiskuKlavesy(udalost) {
 		if (panacekY + panacekVyska > window.innerHeight) {
 			panacekY = window.innerHeight - panacekVyska;
 		}
+		panacek.src = 'obrazky/panacek.png';
 	}
 
 	// panáčka umistíme na nově vypočítanou pozici
