@@ -3,16 +3,19 @@
 let panacek, panacekX, panacekY, panacekSirka, panacekVyska;
 let mince, mineX, minceY, minceSirka, minceVyska;
 let score, pocetMinci;
+let zvukMince, zvukFanfara;
 
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
 function priNacteniStranky() {
 
-	// do globálních proměnných si uložíme odkaz na objekty panáčka, mince a score,
+	// do globálních proměnných si uložíme odkaz na objekty panáčka, mince, score a zvuky,
 	// abychom je nemuseli při každém použití znovu na stránce hledat pomocí document.querySelector
 	panacek = document.querySelector('#panacek');
 	mince = document.querySelector('#mince');
 	score = document.querySelector('#score');
+	zvukMince = document.querySelector('#zvukmince');
+	zvukFanfara = document.querySelector('#zvukfanfara');
 
 	// nastavíme výchozí hodnotu pro score
 	pocetMinci = 0;
@@ -108,6 +111,9 @@ function otestujKolizi() {
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
 		// obdélníky se překrývají, mimozemšťan našel minci
 
+		// přehrajeme zvuk sebrání mince
+		zvukMince.play();
+
 		// zvýšíme skóre
 		zvysScore();
 
@@ -127,6 +133,9 @@ function zvysScore() {
 
 	// otestujeme, zda už hráč nemá 5 bodů
 	if (pocetMinci === 5) {
+		// přehrajeme fanfáru
+		zvukFanfara.play();
+
 		// zobrazíme vítěznou hlášku
 		alert('Vyhrála jsi tuhle super hru!');
 	}
