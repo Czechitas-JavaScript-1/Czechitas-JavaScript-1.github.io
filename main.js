@@ -1,7 +1,7 @@
 // nadefinujeme globální proměnné
 // ty jsou pak použitelné kdekoliv v programu
 let panacek, panacekX, panacekY, panacekSirka, panacekVyska;
-let mince, mineX, minceY, minceSirka, minceVyska;
+let mince, minceX, minceY, minceSirka, minceVyska;
 let score, pocetMinci;
 let zvukMince, zvukFanfara;
 let hrajeHudba = false;
